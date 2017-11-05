@@ -1,5 +1,7 @@
-$:.unshift File.expand_path "..", __FILE__
+$LOAD_PATH.unshift File.expand_path '..', __FILE__
 
 require 'app'
 
-run API::App
+run Rack::Cascade.new [Web, API::App]
+
+# run API::API
